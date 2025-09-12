@@ -1,0 +1,66 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Fix for ReactQuill in nested contexts */
+.text-block-container .ql-container {
+  position: relative;
+  z-index: 10;
+  isolation: isolate;
+}
+
+.text-block-container .ql-toolbar {
+  position: relative;
+  z-index: 11;
+  isolation: isolate;
+}
+
+.layout-column-content .text-block-container {
+  position: relative;
+  isolation: isolate;
+}
+
+/* Ensure proper event handling for nested components */
+.layout-column-content .text-block-container .ql-editor {
+  min-height: 60px;
+  position: relative;
+  z-index: 1;
+}
+
+/* Prevent layout interference with text editing */
+.layout-column-content .text-block-container .ql-container .ql-editor {
+  outline: none;
+  border: none;
+}
+
+.layout-column-content .text-block-container .ql-toolbar {
+  border-bottom: 1px solid #ccc;
+}
+
+/* Ensure ReactQuill maintains proper stacking context */
+.text-block-container .ql-snow {
+  position: relative;
+  z-index: 10;
+}
+
+.text-block-container .ql-snow .ql-editor {
+  position: relative;
+  z-index: 1;
+}
+.layout-column-content .prose {
+  min-height: 40px;
+}
+
+/* Ensure ReactQuill editor receives all keyboard events */
+.text-block-container .ql-editor {
+  pointer-events: auto !important;
+}
+
+.text-block-container .ql-toolbar {
+  pointer-events: auto !important;
+}
+
+/* Prevent drag interference with text editing */
+.text-block-container .ql-container {
+  pointer-events: auto !important;
+}
