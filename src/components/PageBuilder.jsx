@@ -4,12 +4,15 @@ import { arrayMove } from '@dnd-kit/sortable';
 import Sidebar from './Sidebar';
 import Canvas from './Canvas';
 import { generateId } from '../utils/helpers';
+import { blockTypes } from '../data/blockTypes';
 
 const PageBuilder = () => {
   const [blocks, setBlocks] = useState([]);
   const [selectedBlock, setSelectedBlock] = useState(null);
+  const [previewMode, setPreviewMode] = useState('desktop');
   const [activeId, setActiveId] = useState(null);
   const [pageName, setPageName] = useState('Untitled Page');
+  const [isPreviewMode, setIsPreviewMode] = useState(false);
 
   const handleDragStart = useCallback((event) => {
     setActiveId(event.active.id);
@@ -280,6 +283,20 @@ ${bodyContent}
               </div>
             </div>
             
+            <div className="flex items-center space-x-4">              
+              <div className="flex space-x-2">
+                <button
+                  onClick={() => setIsPreviewMode(!isPreviewMode)}
+                  className={`px-4 py-2 rounded-lg transition-colors text-sm ${
+                    isPreviewMode 
+                      ? 'bg-green-600 text-white hover:bg-green-700' 
+                      : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
+                  }`}
+                >
+                  {isPreviewMode ? 'Exit Preview' : 'Preview'}
+                </button>
+              </div>
+            </div>
           </div>
           
           {/* Canvas */}
@@ -291,17 +308,10 @@ ${bodyContent}
             setSelectedBlock={handleSelectBlock}
             updateBlock={updateBlock}
             deleteBlock={deleteBlock}
+            previewMode={previewMode}
+            isPreviewMode={isPreviewMode}
           />
         </div>
-        
-        {/* Properties Panel */}
-        {selectedBlock && (
-          <PropertiesPanel
-            selectedBlock={selectedBlock}
-            updateBlock={updateBlock}
-            onClose={() => setSelectedBlock(null)}
-          />
-        )}
       </div>
       
       <DragOverlay>
