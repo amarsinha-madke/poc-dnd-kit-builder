@@ -1,10 +1,11 @@
 import React from 'react';
 import { useDraggable } from '@dnd-kit/core';
-import { Type, Image, Video, MousePointer, Layout, FileText } from 'lucide-react';
+import { Type, Image, Video, MousePointer, Layout, FileText, Mail } from 'lucide-react';
 
 const blockTypes = [
   { type: 'text', label: 'Text', icon: Type },
   { type: 'button', label: 'Button', icon: MousePointer },
+  { type: 'form', label: 'Form', icon: Mail },
 
 ];
 
