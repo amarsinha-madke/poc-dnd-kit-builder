@@ -31,4 +31,14 @@ export const blockTypes = {
       marginY: 8,
     },
   },
+  form: {
+    defaultProps: {
+      title: 'Subscribe',
+      emailPlaceholder: 'Your email',
+      buttonText: 'Subscribe',
+      paddingY: 16,
+      paddingX: 16,
+      backgroundColor: 'transparent',
+    },
+  },
 };

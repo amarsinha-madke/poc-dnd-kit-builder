@@ -1,12 +1,14 @@
 import React, { memo } from 'react';
 import TextBlock from './blocks/TextBlock';
 import ButtonBlock from './blocks/ButtonBlock';
+import FormBlock from './blocks/FormBlock';
 
 
 const BlockRenderer = ({ block, children = [], selectedBlock, onUpdate, onSelect, onDelete, isSelected, isPreviewMode = false }) => {
   const blockComponents = {
     text: TextBlock,
     button: ButtonBlock,
+    form: FormBlock,
   };
 
   const Component = blockComponents[block.type];
