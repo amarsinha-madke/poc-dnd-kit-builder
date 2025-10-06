@@ -41,4 +41,18 @@ export const blockTypes = {
       backgroundColor: 'transparent',
     },
   },
+  image: {
+    defaultProps: {
+      src: '',
+      alt: '',
+      width: 'auto',
+      height: 'auto',
+      alignment: 'center',
+      paddingX: 16,
+      paddingY: 16,
+      marginX: 0,
+      marginY: 8,
+      borderRadius: 0,
+    },
+  },
 };

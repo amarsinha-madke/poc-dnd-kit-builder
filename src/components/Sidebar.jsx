@@ -6,6 +6,7 @@ const blockTypes = [
   { type: 'text', label: 'Text', icon: Type },
   { type: 'button', label: 'Button', icon: MousePointer },
   { type: 'form', label: 'Form', icon: Mail },
+  { type: 'image', label: 'Image', icon: Image },
 
 ];
 
